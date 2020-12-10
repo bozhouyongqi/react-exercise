@@ -6,6 +6,7 @@ import Home from './components/Home/Home.js';
 import About from './components/About/About.js';
 import Raffle from './components/Raffle/Raffle.js';
 import {UserInfoContext} from './components/context';
+import TestPage from './components/Test/test.js';
 
 
 function App() {
@@ -47,12 +48,17 @@ function App() {
             <Link to="/about">关于</Link>
             <br/>
             <Link to="/raffle">抽奖</Link>
+            <br/>
+            <Link to="/test">测试页</Link>
+            <br/>
+            <br/>
 
             <input type="button" onClick={onLoginChange} value={userInfo.loggin ? '退出' : '登录'}></input>
 
             <Route path="/home" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/raffle" component={Raffle}/>
+            <Route path='/test' component={TestPage}/>
         </UserInfoContext.Provider>
     </BrowserRouter>
   )
