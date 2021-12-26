@@ -12,7 +12,6 @@ export default function PictureSegmentation() {
 
   useEffect(() => {
     async function segment() {
-      console.log('use effect', bodyPix)
       const net = await bodyPix.load({
         architecture: 'MobileNetV1',
         outputStride: 16,
@@ -30,14 +29,13 @@ export default function PictureSegmentation() {
        *   - net.segmentMultiPersonParts
        * See documentation below for details on each method.
         */
-      console.log('imageRef.current ', imageRef.current)
+      const start = new Date().getTime();
       const segmentation = await net.segmentPerson(imageRef.current)
         .catch((error) => {
           console.log('error', error)
         })
+      // 处理分割花费约2秒
       console.log(segmentation);
-
-      console.log(getSegmentationArea(segmentation))
 
       const coloredPartImage = bodyPix.toMask(segmentation);
       const opacity = 0.7;
