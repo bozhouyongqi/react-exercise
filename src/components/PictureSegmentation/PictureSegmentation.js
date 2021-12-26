@@ -7,6 +7,7 @@ const bodyPix = require('@tensorflow-models/body-pix');
 export default function PictureSegmentation() {
 
   const imageRef = useRef(null);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     async function segment() {
@@ -34,6 +35,18 @@ export default function PictureSegmentation() {
           console.log('error', error)
         })
       console.log(segmentation);
+
+      const coloredPartImage = bodyPix.toMask(segmentation);
+      const opacity = 0.7;
+      const flipHorizontal = false;
+      const maskBlurAmount = 0;
+      const canvas = canvasRef.current;
+      // Draw the mask image on top of the original image onto a canvas.
+      // The colored part image will be drawn semi-transparent, with an opacity of
+      // 0.7, allowing for the original image to be visible under.
+      bodyPix.drawMask(
+          canvas, imageRef.current, coloredPartImage, opacity, maskBlurAmount,
+          flipHorizontal);
     }
     segment();
 
@@ -47,7 +60,8 @@ export default function PictureSegmentation() {
       <div>
         人体分割
       </div>
-      <img src="/fbb2.jpeg" width="300px" ref={imageRef}></img>
+      <img src="/fbb2.jpeg" ref={imageRef}></img>
+      <canvas id="canvas" ref={canvasRef}></canvas>
     </>
   );
 }
