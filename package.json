@@ -5,6 +5,8 @@
   "dependencies": {
     "@babel/core": "7.6.0",
     "@svgr/webpack": "4.3.2",
+    "@tensorflow-models/body-pix": "^2.2.0",
+    "@tensorflow/tfjs": "1.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
     "babel-eslint": "10.0.3",
