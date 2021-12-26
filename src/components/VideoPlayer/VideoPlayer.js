@@ -1,14 +1,15 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect } from 'react';
 
 import './VideoPlayer.css';
 
 
 export default function VideoPlayer() {
+    const videoRef = useRef(null);
 
     return (
         <div>
             <div className="playerContainer">
-                <video controls src="/bilibili-video.mp4">
+                <video controls src="/bilibili-video.mp4" id="myVideo" ref={videoRef}>
                 </video>
 
                 <div className="danmuContainer danmuMask">

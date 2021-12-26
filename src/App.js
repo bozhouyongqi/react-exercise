@@ -55,7 +55,7 @@ function App() {
             <br/>
             <Link to="/videoPlayer">视频播放器</Link>
             <br/>
-            <Link to="/pictureSegmentation">视频播放器</Link>
+            <Link to="/pictureSegmentation">人体分割</Link>
             <br/>
             <br/>
 
