@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
+import { getSegmentationArea } from '../../libs/convertSegmentationData';
 
 import './PictureSegmentation.css';
 
@@ -35,6 +36,8 @@ export default function PictureSegmentation() {
           console.log('error', error)
         })
       console.log(segmentation);
+
+      console.log(getSegmentationArea(segmentation))
 
       const coloredPartImage = bodyPix.toMask(segmentation);
       const opacity = 0.7;
