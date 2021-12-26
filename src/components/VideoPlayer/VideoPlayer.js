@@ -3,14 +3,12 @@ import React, {useState, useRef} from 'react';
 import './VideoPlayer.css';
 
 
-export default function Raffle() {
-
-
+export default function VideoPlayer() {
 
     return (
         <div>
             <div className="playerContainer">
-                <video controls src="https://lark-video.oss-cn-hangzhou.aliyuncs.com/outputs/prod/lark/2021/4256566/mp4/1640183761325-98d50f74-876a-4827-a859-93b0d84e9cde.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1640190968&Signature=kp2s5FYFlnnkwHb1Ca6mHN1muOM%3D">
+                <video controls src="/bilibili-video.mp4">
                 </video>
 
                 <div className="danmuContainer danmuMask">
