@@ -8,6 +8,7 @@ import Raffle from './components/Raffle/Raffle.js';
 import {UserInfoContext} from './components/context';
 import TestPage from './components/Test/test.js';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer'
+import PictureSegmentation from './components/PictureSegmentation/PictureSegmentation'
 
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
             <br/>
             <Link to="/videoPlayer">视频播放器</Link>
             <br/>
+            <Link to="/pictureSegmentation">视频播放器</Link>
+            <br/>
             <br/>
 
             <input type="button" onClick={onLoginChange} value={userInfo.loggin ? '退出' : '登录'}></input>
@@ -63,6 +66,7 @@ function App() {
             <Route path="/raffle" component={Raffle}/>
             <Route path='/test' component={TestPage}/>
             <Route path='/videoPlayer' component={VideoPlayer}/>
+            <Route path='/pictureSegmentation' component={PictureSegmentation}/>
         </UserInfoContext.Provider>
     </BrowserRouter>
   )
