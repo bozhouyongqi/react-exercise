@@ -61,7 +61,7 @@ export default function PictureSegmentation() {
       <div>
         人体分割
       </div>
-      <img src="/fbb2.jpeg" ref={imageRef}></img>
+      <img src="/weiya5.jpeg" ref={imageRef}></img>
       <canvas id="canvas" ref={canvasRef}></canvas>
     </>
   );
