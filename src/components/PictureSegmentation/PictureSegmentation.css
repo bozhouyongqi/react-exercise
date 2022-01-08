@@ -1,0 +1,16 @@
+
+.videoContainer {
+  position: relative;
+}
+
+.danmuContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+}
+
+.danmuContent {
+  position:relative;
+  font-size: 20px;
+}

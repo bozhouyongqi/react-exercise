@@ -8,10 +8,16 @@ const bodyPix = require('@tensorflow-models/body-pix');
 
 export default function PictureSegmentation() {
 
+  const [svgElemUrl, setSvgElemUrl] = useState('');
+
   const imageRef = useRef(null);
   const canvasRef = useRef(null);
   const videoRef = useRef(null);
   const videoCanvasRef = useRef(null);
+
+  const danmuContainerRef = useRef(null);
+
+  const svgRef = useRef(null);
 
   useEffect(() => {
     async function segment() {
@@ -84,8 +90,15 @@ export default function PictureSegmentation() {
           height: segmentation.height,
           bodyCoordinate
         }
-
         drawPath(svgData);
+
+        const svg = svgRef.current
+        const s = new XMLSerializer().serializeToString(svg);
+        const ImgBase64 = `data:image/svg+xml;base64,${window.btoa(s)}`;
+
+        const danmuElem = danmuContainerRef.current;
+        danmuElem.style.maskImage = `url(${ImgBase64})`;
+        danmuElem.style.WebkitMaskImage = `url(${ImgBase64})`;
       }
 
       const coloredPartImage = bodyPix.toMask(segmentation);
@@ -127,7 +140,7 @@ export default function PictureSegmentation() {
 
     return () => {};
 
-  }, [videoRef])
+  }, [])
 
   const drawPath = (pathParam) => {
     const { width, height, bodyCoordinate } = pathParam;
@@ -177,10 +190,29 @@ export default function PictureSegmentation() {
       <img src="/weiya5.jpeg" ref={imageRef}></img>
       <canvas id="canvas" ref={canvasRef}></canvas>
 
-      <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
+      <div className="videoContainer">
+        <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
+
+        <div className="danmuContainer" ref={danmuContainerRef}>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+        </div>
+      </div>
       <canvas id="videoCanvas" ref={videoCanvasRef}></canvas>
 
-      <svg width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mySvg">
+      <svg width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mySvg" ref={svgRef}>
       </svg>
     </>
   );
