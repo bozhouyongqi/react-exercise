@@ -129,54 +129,44 @@ export default function PictureSegmentation() {
 
   }, [videoRef])
 
-  // useEffect(() => {
-
-  //   const data = {
-  //     width: 629,
-  //     height: 355,
-  //     bodyCoordinate: {
-  //       top: 100,
-  //       left: 100,
-  //       bottom: 200,
-  //       right: 300,
-  //     }
-  //   }
-
-  //   drawPath(data)
-  // }, [])
-
   const drawPath = (pathParam) => {
     const { width, height, bodyCoordinate } = pathParam;
     const svg = select('#mySvg');
     svg.attr('width', width)
       .attr('height', height);
     const bindData = [bodyCoordinate];
-    const pathElem = svg.selectAll('path');
+    const pathElemUpdate = svg.selectAll('path')
+      .data(bindData);
+    const enterPath = pathElemUpdate.enter();
+    const exitPath = pathElemUpdate.exit();
+    exitPath.remove();
 
     const startPoint = '0 0';
     const points = [];
     points[0] = `${width} 0`
     points[1] = `${width} ${height}`
     points[2] = `0 ${height}`
+
+    const drawPathCallback = function (bodyCoordinate) {
+      const {top, left, bottom, right} = bodyCoordinate;
+      points[3] = `0 ${bottom}`;
+      points[4] = `${left} ${bottom}`
+      points[5] = `${right} ${bottom}`
+      points[6] = `${right} ${top}`
+      points[7] = `${left} ${top}`
+      points[8] = points[4]
+      points[9] = points[3]
     
-    pathElem.data(bindData)
-      .enter()
-      .append('path')
-      .attr('d', function (bodyCoordinate) {
-        const {top, left, bottom, right} = bodyCoordinate;
-        points[3] = `0 ${bottom}`;
-        points[4] = `${left} ${bottom}`
-        points[5] = `${right} ${bottom}`
-        points[6] = `${right} ${top}`
-        points[7] = `${left} ${top}`
-        points[8] = points[4]
-        points[9] = points[3]
+      let path = points.join(' L ');
+      path = `M${startPoint} ${path} Z`;
+      return path
+    }
+  
+    pathElemUpdate.attr('d', drawPathCallback)
 
-        let path = points.join(' L ');
-        path = `M${startPoint} ${path} Z`;
-
-        return path
-      })
+    enterPath
+    .append('path')
+    .attr('d', drawPathCallback)
   }
 
   return (
