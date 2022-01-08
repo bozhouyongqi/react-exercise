@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { getSegmentationArea } from '../../libs/convertSegmentationData';
+import {select, selectAll} from 'd3'
 
 import './PictureSegmentation.css';
 
@@ -75,7 +76,17 @@ export default function PictureSegmentation() {
           console.log('error', error)
         })
 
-      console.log('segmentation ', segmentation);
+      const bodyCoordinate = getSegmentationArea(segmentation);
+
+      if (bodyCoordinate) {
+        const svgData = {
+          width: segmentation.width,
+          height: segmentation.height,
+          bodyCoordinate
+        }
+
+        drawPath(svgData);
+      }
 
       const coloredPartImage = bodyPix.toMask(segmentation);
       const opacity = 0.7;
@@ -118,6 +129,55 @@ export default function PictureSegmentation() {
 
   }, [videoRef])
 
+  // useEffect(() => {
+
+  //   const data = {
+  //     width: 629,
+  //     height: 355,
+  //     bodyCoordinate: {
+  //       top: 100,
+  //       left: 100,
+  //       bottom: 200,
+  //       right: 300,
+  //     }
+  //   }
+
+  //   drawPath(data)
+  // }, [])
+
+  const drawPath = (pathParam) => {
+    const { width, height, bodyCoordinate } = pathParam;
+    const svg = select('#mySvg');
+    svg.attr('width', width)
+      .attr('height', height);
+    const bindData = [bodyCoordinate];
+    const pathElem = svg.selectAll('path');
+
+    const startPoint = '0 0';
+    const points = [];
+    points[0] = `${width} 0`
+    points[1] = `${width} ${height}`
+    points[2] = `0 ${height}`
+    
+    pathElem.data(bindData)
+      .enter()
+      .append('path')
+      .attr('d', function (bodyCoordinate) {
+        const {top, left, bottom, right} = bodyCoordinate;
+        points[3] = `0 ${bottom}`;
+        points[4] = `${left} ${bottom}`
+        points[5] = `${right} ${bottom}`
+        points[6] = `${right} ${top}`
+        points[7] = `${left} ${top}`
+        points[8] = points[4]
+        points[9] = points[3]
+
+        let path = points.join(' L ');
+        path = `M${startPoint} ${path} Z`;
+
+        return path
+      })
+  }
 
   return (
     <>
@@ -129,6 +189,9 @@ export default function PictureSegmentation() {
 
       <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
       <canvas id="videoCanvas" ref={videoCanvasRef}></canvas>
+
+      <svg width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mySvg">
+      </svg>
     </>
   );
 }

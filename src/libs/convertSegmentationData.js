@@ -8,12 +8,7 @@
  */
 export const getSegmentationArea = (segmentation) => {
   if (!segmentation || !segmentation.data) {
-    return {
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0
-    }
+    return null;
   }
   // data应该是从上到下，从左到右输出的。
   const {width, height, data} = segmentation;
