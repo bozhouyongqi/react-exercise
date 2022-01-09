@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./bilibili-video2.8097d33f.mp4"
   },
   {
-    "revision": "920b6e18fd424855b0b03f07e214301b",
+    "revision": "5f206a7a7eec0f93571e86b906adec50",
     "url": "./index.html"
   },
   {
@@ -12,16 +12,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./logo.25bf045c.svg"
   },
   {
-    "revision": "086c5ec500e8c334cb27",
+    "revision": "50620bc4706f2bded615",
     "url": "./static/css/main.5e785cf1.chunk.css"
   },
   {
-    "revision": "b916f14273a68eab458e",
-    "url": "./static/js/2.7f898e9e.chunk.js"
+    "revision": "68a988faa4cc51499b4d",
+    "url": "./static/js/2.2a089e04.chunk.js"
   },
   {
-    "revision": "086c5ec500e8c334cb27",
-    "url": "./static/js/main.cd29d4d8.chunk.js"
+    "revision": "50620bc4706f2bded615",
+    "url": "./static/js/main.67160bb1.chunk.js"
   },
   {
     "revision": "3b31328079c139250e51",

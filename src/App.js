@@ -39,20 +39,7 @@ function App() {
     };
 
   return (
-    <BrowserRouter>
-        <UserInfoContext.Provider value={userInfo}>
-            <Link to="./videoPlayer">视频播放器</Link>
-            <br/>
-            <Link to="./pictureSegmentation">人体分割</Link>
-            <br/>
-            <br/>
-
-            <input type="button" onClick={onLoginChange} value={userInfo.loggin ? '退出' : '登录'}></input>
-
-            <Route path='/videoPlayer' component={VideoPlayer}/>
-            <Route path='/pictureSegmentation' component={PictureSegmentation}/>
-        </UserInfoContext.Provider>
-    </BrowserRouter>
+    <PictureSegmentation />
   )
 }
 
