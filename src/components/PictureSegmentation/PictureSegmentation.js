@@ -203,7 +203,7 @@ export default function PictureSegmentation() {
         <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
 
         <div className="danmuContainer" ref={danmuContainerRef}>
-          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu </div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>

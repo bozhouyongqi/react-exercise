@@ -9,9 +9,22 @@
   left: 0;
   color: red;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .danmuContent {
   position:relative;
   font-size: 20px;
+  animation: barrage linear 8s infinite;
+}
+
+@keyframes barrage{
+  from{
+    left:100%;
+    transform:translateX(0);
+  }
+  to{
+    left:0;
+    transform:translateX(-100%);
+  }
 }
