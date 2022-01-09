@@ -4,6 +4,9 @@ import {select, selectAll} from 'd3'
 
 import './PictureSegmentation.css';
 
+import imgSrc from './weiya5.jpeg';
+import videoSrc from './bilibili-video2.mp4';
+
 const bodyPix = require('@tensorflow-models/body-pix');
 
 export default function PictureSegmentation() {
@@ -196,11 +199,11 @@ export default function PictureSegmentation() {
       <div>
         人体分割
       </div>
-      <img src="weiya5.jpeg" ref={imageRef}></img>
+      <img src={imgSrc} ref={imageRef}></img>
       <canvas id="canvas" ref={canvasRef}></canvas>
 
       <div className="videoContainer">
-        <video controls src="bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
+        <video controls src={videoSrc} id="myVideo" ref={videoRef}> </video>
 
         <div className="danmuContainer" ref={danmuContainerRef}>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu </div>
