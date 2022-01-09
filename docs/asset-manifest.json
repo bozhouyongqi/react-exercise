@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.5e785cf1.chunk.css",
-    "main.js": "/static/js/main.26b19539.chunk.js",
-    "main.js.map": "/static/js/main.26b19539.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ce50c451.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ce50c451.js.map",
-    "static/js/2.a4ac542b.chunk.js": "/static/js/2.a4ac542b.chunk.js",
-    "static/js/2.a4ac542b.chunk.js.map": "/static/js/2.a4ac542b.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.6d87b004aea2561fb09918645d260186.js": "/precache-manifest.6d87b004aea2561fb09918645d260186.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5e785cf1.chunk.css.map": "/static/css/main.5e785cf1.chunk.css.map",
-    "static/media/logo.svg": "/static/media/logo.25bf045c.svg"
+    "main.css": "/Users/wangyongqi/ant/learn/react-exercisestatic/css/main.5e785cf1.chunk.css",
+    "main.js": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/main.798ac6af.chunk.js",
+    "main.js.map": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/main.798ac6af.chunk.js.map",
+    "runtime-main.js": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/runtime-main.2dd5f558.js",
+    "runtime-main.js.map": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/runtime-main.2dd5f558.js.map",
+    "static/js/2.a4ac542b.chunk.js": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/2.a4ac542b.chunk.js",
+    "static/js/2.a4ac542b.chunk.js.map": "/Users/wangyongqi/ant/learn/react-exercisestatic/js/2.a4ac542b.chunk.js.map",
+    "index.html": "/Users/wangyongqi/ant/learn/react-exerciseindex.html",
+    "precache-manifest.58a44fd5489f6c5e880a349b98ed627b.js": "/Users/wangyongqi/ant/learn/react-exerciseprecache-manifest.58a44fd5489f6c5e880a349b98ed627b.js",
+    "service-worker.js": "/Users/wangyongqi/ant/learn/react-exerciseservice-worker.js",
+    "static/css/main.5e785cf1.chunk.css.map": "/Users/wangyongqi/ant/learn/react-exercisestatic/css/main.5e785cf1.chunk.css.map",
+    "static/media/logo.svg": "/Users/wangyongqi/ant/learn/react-exercisestatic/media/logo.25bf045c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce50c451.js",
+    "static/js/runtime-main.2dd5f558.js",
     "static/js/2.a4ac542b.chunk.js",
     "static/css/main.5e785cf1.chunk.css",
-    "static/js/main.26b19539.chunk.js"
+    "static/js/main.798ac6af.chunk.js"
   ]
 }
