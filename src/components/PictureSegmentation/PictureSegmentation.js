@@ -196,11 +196,11 @@ export default function PictureSegmentation() {
       <div>
         人体分割
       </div>
-      <img src="/weiya5.jpeg" ref={imageRef}></img>
+      <img src="weiya5.jpeg" ref={imageRef}></img>
       <canvas id="canvas" ref={canvasRef}></canvas>
 
       <div className="videoContainer">
-        <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
+        <video controls src="bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
 
         <div className="danmuContainer" ref={danmuContainerRef}>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu </div>
