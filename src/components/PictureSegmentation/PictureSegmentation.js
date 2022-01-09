@@ -81,6 +81,9 @@ export default function PictureSegmentation() {
         .catch((error) => {
           console.log('error', error)
         })
+      if (!segmentation) {
+        return;
+      }
 
       const bodyCoordinate = getSegmentationArea(segmentation);
 
@@ -93,6 +96,9 @@ export default function PictureSegmentation() {
         drawPath(svgData);
 
         const svg = svgRef.current
+        if (!svg) {
+          return;
+        }
         const s = new XMLSerializer().serializeToString(svg);
         const ImgBase64 = `data:image/svg+xml;base64,${window.btoa(s)}`;
 
@@ -130,6 +136,9 @@ export default function PictureSegmentation() {
     videoRef.current.addEventListener('play', () => {
 
       async function generateSegmentation() {
+        if (!videoRef || !videoRef.current) {
+          return;
+        }
         if(!videoRef.current.paused && !videoRef.current.ended) {
           await segment();
           requestAnimationFrame(generateSegmentation);
@@ -194,6 +203,7 @@ export default function PictureSegmentation() {
         <video controls src="/bilibili-video2.mp4" id="myVideo" ref={videoRef}> </video>
 
         <div className="danmuContainer" ref={danmuContainerRef}>
+          <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
           <div className="danmuContent">this is a danmu this is a danmu this is a danmu this is a danmu this is a danmu</div>
