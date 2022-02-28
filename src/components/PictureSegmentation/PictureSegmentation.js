@@ -195,7 +195,7 @@ export default function PictureSegmentation() {
       <div>
         人体分割
       </div>
-      <img src="/weiya5.jpeg" ref={imageRef} alt="img"></img>
+      <img src="/person2.jpg" ref={imageRef} alt="img"></img>
       <canvas id="canvas" ref={canvasRef}></canvas>
 
       <div className="videoContainer">
