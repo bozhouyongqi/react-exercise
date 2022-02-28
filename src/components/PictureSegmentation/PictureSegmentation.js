@@ -1,17 +1,14 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 import { getSegmentationArea } from '../../libs/convertSegmentationData';
-import {select, selectAll} from 'd3'
+import { select } from 'd3'
 
 import './PictureSegmentation.css';
 
-import imgSrc from './weiya5.jpeg';
+import imgSrc from './person2.jpg';
 import videoSrc from './bilibili-video2.mp4';
-
-const bodyPix = require('@tensorflow-models/body-pix');
+import { load, toMask, drawMask } from '@tensorflow-models/body-pix';
 
 export default function PictureSegmentation() {
-
-  const [svgElemUrl, setSvgElemUrl] = useState('');
 
   const imageRef = useRef(null);
   const canvasRef = useRef(null);
@@ -24,7 +21,7 @@ export default function PictureSegmentation() {
 
   useEffect(() => {
     async function segment() {
-      const net = await bodyPix.load({
+      const net = await load({
         architecture: 'MobileNetV1',
         outputStride: 16,
         multiplier: 0.75,
@@ -49,7 +46,7 @@ export default function PictureSegmentation() {
       // 处理分割花费约2秒
       console.log(segmentation, 'cost ', new Date().getTime() - start);
 
-      const coloredPartImage = bodyPix.toMask(segmentation);
+      const coloredPartImage = toMask(segmentation);
       const opacity = 0.7;
       const flipHorizontal = false;
       const maskBlurAmount = 0;
@@ -57,9 +54,9 @@ export default function PictureSegmentation() {
       // Draw the mask image on top of the original image onto a canvas.
       // The colored part image will be drawn semi-transparent, with an opacity of
       // 0.7, allowing for the original image to be visible under.
-      bodyPix.drawMask(
-          canvas, imageRef.current, coloredPartImage, opacity, maskBlurAmount,
-          flipHorizontal);
+      drawMask(
+        canvas, imageRef.current, coloredPartImage, opacity, maskBlurAmount,
+        flipHorizontal);
     }
     segment();
 
@@ -110,20 +107,20 @@ export default function PictureSegmentation() {
         danmuElem.style.WebkitMaskImage = `url(${ImgBase64})`;
       }
 
-      const coloredPartImage = bodyPix.toMask(segmentation);
+      const coloredPartImage = toMask(segmentation);
       const opacity = 0.7;
       const flipHorizontal = false;
       const maskBlurAmount = 0;
       // // Draw the mask image on top of the original image onto a canvas.
       // // The colored part image will be drawn semi-transparent, with an opacity of
       // // 0.7, allowing for the original image to be visible under.
-      bodyPix.drawMask(
+      drawMask(
         videoCanvasRef.current, videoRef.current, coloredPartImage, opacity, maskBlurAmount,
         flipHorizontal);
 
     }
     async function loadModel() {
-      net = await bodyPix.load({
+      net = await load({
         architecture: 'MobileNetV1',
         outputStride: 16,
         multiplier: 0.5,
