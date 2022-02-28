@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.5e785cf1.chunk.css",
-    "main.js": "./static/js/main.67160bb1.chunk.js",
-    "main.js.map": "./static/js/main.67160bb1.chunk.js.map",
+    "main.css": "./static/css/main.fffb31d2.chunk.css",
+    "main.js": "./static/js/main.ed052331.chunk.js",
+    "main.js.map": "./static/js/main.ed052331.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.85cec402.js",
     "runtime-main.js.map": "./static/js/runtime-main.85cec402.js.map",
-    "static/js/2.2a089e04.chunk.js": "./static/js/2.2a089e04.chunk.js",
-    "static/js/2.2a089e04.chunk.js.map": "./static/js/2.2a089e04.chunk.js.map",
+    "static/js/2.771d45bd.chunk.js": "./static/js/2.771d45bd.chunk.js",
+    "static/js/2.771d45bd.chunk.js.map": "./static/js/2.771d45bd.chunk.js.map",
     "bilibili-video2.mp4": "./bilibili-video2.8097d33f.mp4",
     "index.html": "./index.html",
     "logo.svg": "./logo.25bf045c.svg",
-    "precache-manifest.9af07a512798e9ad04fb21b8fbef4837.js": "./precache-manifest.9af07a512798e9ad04fb21b8fbef4837.js",
+    "person2.jpg": "./person2.e182c057.jpg",
+    "precache-manifest.52b18efdce0fc4873fcdcb6424755d69.js": "./precache-manifest.52b18efdce0fc4873fcdcb6424755d69.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.5e785cf1.chunk.css.map": "./static/css/main.5e785cf1.chunk.css.map",
-    "weiya5.jpeg": "./weiya5.ebb7772c.jpeg"
+    "static/css/main.fffb31d2.chunk.css.map": "./static/css/main.fffb31d2.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.85cec402.js",
-    "static/js/2.2a089e04.chunk.js",
-    "static/css/main.5e785cf1.chunk.css",
-    "static/js/main.67160bb1.chunk.js"
+    "static/js/2.771d45bd.chunk.js",
+    "static/css/main.fffb31d2.chunk.css",
+    "static/js/main.ed052331.chunk.js"
   ]
 }
