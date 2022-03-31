@@ -7,14 +7,14 @@
 }
 
 .raffle-person {
-    background-color: red;
-    padding: 0px 20px;
     display: inline-block;
+    padding: 0px 20px;
+    background-color: red;
 }
 
 
 .scroll-area {
-    margin-bottom:50px;
     height: 100px;
+    margin-bottom:50px;
     border:1px solid black;
 }
