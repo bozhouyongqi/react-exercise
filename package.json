@@ -68,7 +68,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint \"./src/**/*.{js,ts}\"",
-    "lint:fix": "eslint --fix \"./src/**/*.{js,ts}\""
+    "lint:fix": "eslint --fix \"./src/**/*.{js,ts}\"",
+    "stylelint": "stylelint \"./src/**/*.{css,less}\"",
+    "stylelint:fix": "stylelint --fix \"./src/**/*.{css,less}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -137,5 +139,13 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^4.0.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^2.6.1",
+    "stylelint": "^14.6.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2"
   }
 }
